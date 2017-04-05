@@ -1,0 +1,27 @@
+Working with DB:
+
+DB	SOUND						EXAMPLE
+10	Almost inaudible			A leaf falling
+20	Audible						Rustles of autumnal leaves
+30	Very quiet					Whispering
+40								Living room, quiet classroom
+50	Limited sound				Refrigerator working, car driving past
+55								Percolating coffee-maker
+60	Audible						Sound of human voice, machinery
+70	Irritating					Television set on loud, vacuum cleaner, several people on the telephone
+75	Constant sound				Busy restaurant around lunchtime
+80	Unpleasant					Alarm clock, freight traffic, doorbell
+85	Loud						Sawing, mixer
+90	Extremely unpleasant		Truck close by, screaming, yelling, shouting
+95	Noisy						Drill, violin
+100	Extremely unpleasant		Machine in a factory, compressor, fighter jet at 300 m
+105	Even louder					Helicopter close by, large drum
+110	Extremely loud				Rock concert, chainsaw
+120								Human voice at its loudest, police siren
+130								Thunder
+140	Pain threshold				First Monday of the month siren from close by
+150	Permanent damage 			Fireworks
+160								Shooting with pistol or rifle
+170								Avalanche firework
+180								Rocket launch platform
+194								Saturn rocket
