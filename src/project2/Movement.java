@@ -72,7 +72,7 @@ public class Movement {
 	                                                	//Used to be getRGBMode() but that occasionally stopped on wrong color
 		colorSample = new float[colorProvider.sampleSize()];
 
-		pilot.setLinearSpeed(4.5f); // speed is inches per second
+		pilot.setLinearSpeed(4.5f); // speed is inches per second because I used inches for wheel and track measurements
 
 		while (true) {
 			Delay.msDelay(2);
@@ -93,7 +93,7 @@ public class Movement {
 						pilot.rotate(-45); // left rotate
 					}
 					pilot.forward();
-					if (colorSample[0] == Color.BLACK) {
+					if (colorSensor.getColorID() == Color.BLACK) {
 						pilot.stop();
 					}
 				}
