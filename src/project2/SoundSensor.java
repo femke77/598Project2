@@ -3,7 +3,7 @@ package project2;
 import lejos.robotics.SampleProvider;
 import lejos.robotics.filter.AbstractFilter;
 
-public class SoundSensor extends AbstractFilter {
+public class SoundSensor extends AbstractFilter{
 
 	float[] sample;
 	
@@ -17,7 +17,8 @@ public class SoundSensor extends AbstractFilter {
 
 	public boolean music(){
 		super.fetchSample(sample, 0);
-		if (sample[0] < 60){   //assume music is >= 60 DB  ?? 
+		
+		if (sample[0] < 30){  
 			return false;
 		}
 		else{

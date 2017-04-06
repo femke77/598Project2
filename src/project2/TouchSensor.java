@@ -11,7 +11,6 @@ public class TouchSensor extends AbstractFilter {
 	public TouchSensor(SampleProvider source) {
 		super(source);
 		sample = new float[sampleSize];
-		
 	}
 
 	public boolean pressed(){
@@ -20,7 +19,7 @@ public class TouchSensor extends AbstractFilter {
 			return false;
 		}
 		else{
-			return true;
+			return true; //pressed
 		}
 	}
 	
