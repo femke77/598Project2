@@ -1,4 +1,4 @@
-package project2;
+package project;
 
 //TODO: get the color sensor code adjustments correct
 import java.util.Random;
@@ -23,9 +23,7 @@ import lejos.utility.Delay;
 
 public class Movement {
 
-	NXTLightSensor light;
-	SampleProvider lightSampleProvider;
-	float[] lightSampleArray;
+
 
 	EV3ColorSensor colorSensor;
 	SampleProvider colorProvider;
@@ -54,18 +52,16 @@ public class Movement {
 		pilot = new MovePilot(chassis);
 		rand = new Random();
 		Brick brick = BrickFinder.getDefault();
-		Port s3 = brick.getPort("S3"); // port 3 is where the touch sensor is
+
 		Port s1 = brick.getPort("S1"); // port 1 is ev3 color sensor
 		Port s4 = brick.getPort("S4"); // port 2 is the recommended port for nxt
 										// light sensors
 
 		EV3TouchSensor sensor = new EV3TouchSensor(s4);
 
-		light = new NXTLightSensor(s3);
-		light.setFloodlight(true);
-		lightSampleProvider = light.getRedMode();
+	
 
-		lightSampleArray = new float[light.sampleSize()];
+	
 
 		colorSensor = new EV3ColorSensor(s1);
 		colorProvider = colorSensor.getColorIDMode();
@@ -78,12 +74,12 @@ public class Movement {
 
 		while (true) {
 
-			Delay.msDelay(30);
+			Delay.msDelay(2);
 
 			colorSensor.fetchSample(colorSample, 0);
-			lightSampleProvider.fetchSample(lightSampleArray, 0);
+		
 
-			
+			System.out.println("go");
 			// System.out.println("lsa "+lightSampleArray[0]); //debug
 			// System.out.println("cS " + colorSample[0]); // debug
 
@@ -92,7 +88,7 @@ public class Movement {
 				pilot.stop();
 				sensor.close();
 				colorSensor.close();
-				light.close();
+			
 
 				System.exit(0);
 			}
@@ -110,33 +106,13 @@ public class Movement {
 				pilot.forward();
 
 			}
-			
-
-			if ((colorSensor.getColorID()==Color.BLACK) && (lightSampleArray[0] <= .39f)) { // winner
-				pilot.stop();
-		        System.out.println("winner");
-			//	 sensor.close(); colorSensor.close(); light.close();
-			//	 System.exit(0);
-				 
-			}
-			
-			// left colorSample has black, right lSA does not have black
-			if ((colorSensor.getColorID()==Color.BLACK) && (lightSampleArray[0] >= .39f)) {
-				System.out.println("right no black " + lightSampleArray[0]); 
-			  pilot.stop();
-				pilot.arc(2, -20);
-				pilot.forward();
-
-			}
-
-			// left colorSample does not have black, right lSA has black
-			if ((colorSensor.getColorID() != Color.BLACK) && (lightSampleArray[0] <= .39f)) {
-				System.out.println("left no black " + lightSampleArray[0]);
-				pilot.stop();
-				pilot.arc(2, 15);
-				pilot.forward();
-			}
-
+        
+            if (colorSensor.getColorID()==Color.BLACK){
+            	pilot.stop();
+            	sensor.close();
+				colorSensor.close();
+				System.exit(0);
+            }
 
 			}//end while
 			

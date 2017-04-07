@@ -1,0 +1,19 @@
+ Problems encountered and lessons learned in Project2 Musical Squares
+ 
+ First problem arose when we decided we needed 2 light or color sensors to find the center of the annulus. I bought a cheaper version of the
+ NXT light sensor after checking with LEGO engineering and finding out that it is compatible with EV3/LEJOS if you use it as a NXTColorSensor.
+ When we tried to make it work, the sensor flashed a few times and said "Failure to Set Mode" on the brick screen. Various testing and debugging 
+ did not achieve the results. I checked with the seller of the sensor and according to that person, the NXT is NOT compatible. 
+ Later I decided to try it as a NXTLightSensor :
+ 
+ Then I decided to try NXTColorSensor in ambient mode which i had not tried before
+ 
+ 
+ The other problem came to fruition when I got a bright idea that using the old NXT sound sensor, we could make our robot start and stop to the
+ music, unless he is on the black annulus and already stopped. 
+ 
+ 
+ Another really frustrating thing is that the Lego EV3/NXT code is a rapidly evoloving entity and sometimes the changes are quite dramatic
+ Its very easy to google for information on a problem and end up misled down a rabbit hole because it is probably old information. Its also 
+ very hard to find good information on any new things going on. There's really a lot of miscommunication or failure of communication in this 
+ world.
