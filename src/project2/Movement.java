@@ -83,10 +83,6 @@ public class Movement {
 			colorSensor.fetchSample(colorSample, 0);
 			lightSampleProvider.fetchSample(lightSampleArray, 0);
 
-			
-			// System.out.println("lsa "+lightSampleArray[0]); //debug
-			// System.out.println("cS " + colorSample[0]); // debug
-
 			// user cancel:
 			if (Button.ESCAPE.isDown()) {
 				pilot.stop();
@@ -110,20 +106,21 @@ public class Movement {
 				pilot.forward();
 
 			}
-			
 
-			if ((colorSensor.getColorID()==Color.BLACK) && (lightSampleArray[0] <= .39f)) { // winner
+			if ((colorSensor.getColorID() == Color.BLACK) && (lightSampleArray[0] <= .39f)) { // winner
 				pilot.stop();
-		        System.out.println("winner");
-			//	 sensor.close(); colorSensor.close(); light.close();
-			//	 System.exit(0);
-				 
+				System.out.println("winner");
+				sensor.close();
+				colorSensor.close();
+				light.close();
+				System.exit(0);
+
 			}
-			
+
 			// left colorSample has black, right lSA does not have black
-			if ((colorSensor.getColorID()==Color.BLACK) && (lightSampleArray[0] >= .39f)) {
-				System.out.println("right no black " + lightSampleArray[0]); 
-			  pilot.stop();
+			if ((colorSensor.getColorID() == Color.BLACK) && (lightSampleArray[0] >= .39f)) {
+				System.out.println("right no black " + lightSampleArray[0]);
+				pilot.stop();
 				pilot.arc(2, -20);
 				pilot.forward();
 
@@ -137,10 +134,9 @@ public class Movement {
 				pilot.forward();
 			}
 
+		} // end while
 
-			}//end while
-			
-	}//end movement
+	}// end movement
 
 	// this method starts the program gracefully. Hit go when ready or escape to
 	// quit
