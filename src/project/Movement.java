@@ -111,6 +111,7 @@ public class Movement {
             	pilot.stop();
             	sensor.close();
 				colorSensor.close();
+				
 				System.exit(0);
             }
 
